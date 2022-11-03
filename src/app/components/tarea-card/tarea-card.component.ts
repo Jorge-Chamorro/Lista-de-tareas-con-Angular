@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {Task} from '../task';
-import { TASK } from '../mock-tasks';
+import {Task} from '../../task';
+import { TASK } from '../../mock-tasks';
 
 @Component({
   selector: 'app-tarea-card',

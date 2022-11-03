@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-//importo la interface
-import {Task} from '../task';
-// importo el array donde estan las tareas, o sea el mock
-import {TASK} from '../mock-tasks';
+//importo el servicio y en el constructor tengo que declarar que recibira como parametro 
+//un objeto "tareasService" que es del tipo "TareasService"
+import { TareasService } from '../../service/tareas.service';
 
+import { Task } from '../../task'; // tengo que importar la interface para poder usarla
+
+// ***************************************quede en 58 minutos
 @Component({
   selector: 'app-tarea',
   templateUrl: './tarea.component.html',
@@ -11,11 +13,14 @@ import {TASK} from '../mock-tasks';
 })
 export class TareaComponent implements OnInit {
 
-  tareas : Task [] = TASK;
+  tareas : Task [] = [];
 
-  constructor() { }
+  constructor(
+    private tareasService:TareasService,
+  ) { }
 
   ngOnInit(): void {
+   this.tareas = this.tareasService.getTareas();
   }
 
 }
